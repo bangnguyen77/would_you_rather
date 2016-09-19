@@ -2,10 +2,10 @@
 
 <%= form_for @question do |f| %>
   <%= f.label :statement %>
-  <%= f.text_field :statement %>
-  <%= f.label :either %>
-  <%= f.text_field :answer1 %>
-  <%= f.label :or %>
+  <%= f.text_field :statement %><br>
+  <%= f.label :answer1, "either" %>
+  <%= f.text_field :answer1 %><br>
+  <%= f.label :answer2, "or" %>
   <%= f.text_field :answer2 %>
   <%= f.submit %>
 <% end %>

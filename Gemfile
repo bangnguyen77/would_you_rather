@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
@@ -19,6 +20,8 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'capybara', '~> 2.7', '>= 2.7.1'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'simplecov', require: false
 end
 
 group :development do
