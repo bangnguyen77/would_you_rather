@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:statement)
+    params.require(:question).permit(:statement, :answer1, :answer2)
   end
 
   def find_question
