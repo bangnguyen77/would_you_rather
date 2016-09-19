@@ -10,18 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919183628) do
+ActiveRecord::Schema.define(version: 20160919225953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "questions", force: :cascade do |t|
     t.text     "statement"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.text     "answer1"
     t.text     "answer2"
+    t.integer  "total"
+    t.integer  "answer1total"
+    t.integer  "answer2total"
     t.index ["user_id"], name: "index_questions_on_user_id", using: :btree
   end
 

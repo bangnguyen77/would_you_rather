@@ -15,4 +15,17 @@ describe 'the add a question process' do
     click_on 'Create Question'
     expect(page).to have_content 'Image page'
   end
+
+  it "shows an error if nothing is entered" do
+    user = FactoryGirl.create(:user)
+    visit questions_path
+    click_on 'Sign In'
+    fill_in 'Email', :with => 'new@gmail.com'
+    fill_in 'Password', :with => 'password'
+    click_on 'Log in'
+    click_on 'New Question'
+    fill_in 'Statement', :with => ''
+    click_on 'Create Question'
+    expect(page).to have_content 'Please fix these errors'
+  end
 end

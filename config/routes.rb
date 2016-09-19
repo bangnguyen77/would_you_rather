@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :questions
 
   root "pages#show", page: "home"
+  post 'post/:id' => 'questions#updateAnswer1'
 end

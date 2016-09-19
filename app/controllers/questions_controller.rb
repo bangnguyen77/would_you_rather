@@ -8,12 +8,29 @@ class QuestionsController < ApplicationController
   def show
   end
 
+  def updateAnswer1
+    alert("finally")
+    console.log('inside')
+    @question.answer1 += 1
+    @question.total += 1
+    render
+  end
+
+  def updateAnswer2
+    @question.answer2 += 1
+    @question.total += 1
+    render
+  end
+
   def new
     @question = current_user.questions.build
   end
 
   def create
     @question = current_user.questions.build(question_params)
+    @question.total = 0
+    @question.answer1total = 0
+    @question.answer2total = 0
     if @question.save
       redirect_to questions_path
     else
