@@ -1,10 +1,8 @@
-<h1>Questions</h1>
-<ul>
-  <% @questions.each do |question| %>
-  <li><%= link_to question.statement, question_path(question) %></li>
-  <ol>
-    <li><%= question.answer1 %></li>
-    <li><%= question.answer2 %></li>
-  </ol>
-  <% end %>
-</ul>
+<div>
+  <h1>Questions</h1>
+  <ul id="questions">
+    <% @questions.each do |question| %>
+    <%= render "question", :question => question %>
+    <% end %>
+  </ul>
+</div>
