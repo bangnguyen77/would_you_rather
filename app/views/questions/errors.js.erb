@@ -1,0 +1,2 @@
+$('#errors').remove();
+$('#new_question').before('<%= j render("layouts/errors", :object => @question)%>');

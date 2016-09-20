@@ -1,3 +1,5 @@
 $("#new_question").remove();
+$("#errors").remove();
 $('#questions').show();
-$('#questions').append('<%= j render(@question)%>')
+$('#questions').append('<%= j render(@question)%>');
+$('#new_question_button').show();

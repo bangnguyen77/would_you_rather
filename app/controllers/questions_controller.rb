@@ -17,13 +17,14 @@ class QuestionsController < ApplicationController
     @question.total = 0
     @question.answer1total = 0
     @question.answer2total = 0
-    if @question.save(question_params)
-      respond_to do |format|
-        format.html { redirect_to questions_path}
-        format.js
+    respond_to do |format|
+      if @question.save(question_params)
+        format.html { redirect_to questions_path }
+        format.js { render :create }
+      else
+        format.html { render :new }
+        format.js { render :errors }
       end
-    else
-      render :new
     end
   end
 
