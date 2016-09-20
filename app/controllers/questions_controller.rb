@@ -8,20 +8,6 @@ class QuestionsController < ApplicationController
   def show
   end
 
-  def updateAnswer1
-    alert("finally")
-    console.log('inside')
-    @question.answer1 += 1
-    @question.total += 1
-    render
-  end
-
-  def updateAnswer2
-    @question.answer2 += 1
-    @question.total += 1
-    render
-  end
-
   def new
     @question = current_user.questions.build
   end
@@ -42,10 +28,19 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update(question_params)
-      redirect_to questions_path
+    if(question_params.has_key?(:answer1total))
+      @question.total += 1
+      @question.answer1total += 1
+      @question.save
+      redirect_to question_path
     else
-      render :edit
+      if @question.total += 1
+        @question.answer2total  += 1
+        @question.save
+        redirect_to question_path
+      else
+        render :edit
+      end
     end
   end
 
@@ -56,7 +51,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:statement, :answer1, :answer2)
+    params.require(:question).permit(:statement, :answer1, :answer2, :answer1total, :answer2total, :total)
   end
 
   def find_question
